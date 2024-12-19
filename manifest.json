@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Hand Gesture Tracker",
+  "version": "1.0",
+  "description": "Gesture tracking with handtrack.js",
+  "permissions": ["activeTab", "scripting", "storage", "camera"],
+  "host_permissions": ["<all_urls>"],
+  "options_page": "options.html",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["handtrack.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["handtrack.min.js" ,"content.js"]
+    }
+  ]
+}
